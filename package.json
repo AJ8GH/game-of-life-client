@@ -7,11 +7,11 @@
     "lib": "lib"
   },
   "scripts": {
+    "build": "tsc",
     "test": "jest",
     "lint": "npx eslint .  --ext .ts",
     "lint-fix": "npx eslint .  --ext .ts --fix",
-    "build": "tsc",
-    "start": "nodemon src/index.ts"
+    "start": "tsc && nodemon src/index.ts"
   },
   "author": "AJ8GH",
   "license": "ISC",

@@ -30,7 +30,8 @@ describe('Client', () => {
       const client = new Client();
       const response = await client.dequeue();
       expect(mock.history.post[0].url).toEqual(EXPECTED_URL);
-      expect(response).toEqual(MOCK_RESPONSE);
+      expect(response?.status).toEqual(200);
+      expect(response?.data).toEqual(MOCK_RESPONSE);
     });
   });
 });

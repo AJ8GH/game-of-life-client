@@ -11,7 +11,7 @@
     "test": "jest",
     "lint": "npx eslint .  --ext .ts",
     "lint-fix": "npx eslint .  --ext .ts --fix",
-    "start": "tsc && nodemon src/index.ts"
+    "start": "tsc && nodemon src/app/launcher.ts"
   },
   "author": "AJ8GH",
   "license": "ISC",
@@ -28,11 +28,13 @@
     "express": "^4.17.2",
     "jest": "^27.4.5",
     "nodemon": "^2.0.15",
+    "supertest": "^6.1.6",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "@types/supertest": "^2.0.11",
     "axios": "^0.24.0"
   }
 }

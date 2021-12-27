@@ -1,10 +1,28 @@
-import App from '../src/app'
+import App from '../src/app/app';
+import supertest from 'supertest';
 
-test('App starts and stops', () => {
-  const app = new App(3000);
-  try {
-    app.start();
-  } finally {
-    app.stop();
-  }
+describe('App', () => {
+  describe('#start_#stop', () => {
+    it('starts and stops the server', () => {
+      const app = new App(3000);
+      try {
+        app.start();
+      } finally {
+        app.stop();
+      }
+    });
+  });
+
+  describe('#get', () => {
+    it('renders correct template for the route', () => {
+      const app = new App(3000);
+      try {
+        app.start();
+        const response = app.get('/', '/index.html');
+        expect(response.status).toBe(200);
+      } finally {
+        app.stop();
+      }
+    });
+  });
 });

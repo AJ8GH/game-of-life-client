@@ -1,4 +1,6 @@
+coverage
+log
 out
 .idea
-.vs_code
 .DS_Store
+.vscode

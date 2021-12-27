@@ -6,10 +6,10 @@ export default class Client {
   async dequeue(): Promise<AxiosResponse<number, string> | null> {
     try {
       const response = await axios.post(this.ENDPOINT, {});
-      console.log(`Response received - status: ${response.status}, body: ${response.data}`);
+      console.log(`${response.status} response received: ${response.data}`);
       return response;
-    } catch (exception) {
-      process.stderr.write(`ERROR received from ${this.ENDPOINT}: ${exception}\n`);
+    } catch (e) {
+      process.stderr.write(`ERROR received from ${this.ENDPOINT}: ${e}\n`);
     }
     return null;
   }

@@ -1,2 +1,2 @@
-export * from './app';
-export * from './client';
+export * from './app/app';
+export * from './client/client';

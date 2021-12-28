@@ -7,13 +7,14 @@ export interface Response {
 }
 
 export default class App {
-  private readonly STARTING_SERVER = 'Starting server...';
-  private readonly SERVER_STARTED = 'Server started and listening at http://localhost:';
-  private readonly CLOSING_SERVER = 'Server shutting down gracefully...';
-  private readonly SHUTDOWN_ERROR = 'Error shutting down server: ';
-  private readonly START_ERROR = 'Error starting server: ';
-  private readonly SERVER_CLOSED = 'Server has been closed.';
+  private readonly STARTING_SERVER: string = 'Starting server...';
+  private readonly SERVER_STARTED: string = 'Server started and listening at http://localhost:';
+  private readonly CLOSING_SERVER: string = 'Server shutting down gracefully...';
+  private readonly SHUTDOWN_ERROR: string = 'Error shutting down server: ';
+  private readonly START_ERROR: string = 'Error starting server: ';
+  private readonly SERVER_CLOSED: string = 'Server has been closed.';
   private readonly BASE_DIR: string = __dirname.split('src')[0] + '/static/public';
+  private readonly OK: number = 200;
   private readonly port: number;
   public readonly app: express.Application;
   private server?: http.Server;
@@ -48,6 +49,6 @@ export default class App {
     this.app.get(route, (req, res) => {
       res.sendFile(path.join(this.BASE_DIR, template));
     });
-    return { status: 200 };
+    return { status: this.OK };
   }
 }

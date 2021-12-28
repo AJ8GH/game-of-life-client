@@ -5,6 +5,6 @@ module.exports = {
   coverageDirectory: 'coverage',
   collectCoverage: true,
   testPathIgnorePatterns: [
-      "/node_modules/"
+    "/node_modules/"
   ]
 };

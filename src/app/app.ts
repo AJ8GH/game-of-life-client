@@ -3,7 +3,7 @@ import * as http from 'http';
 import path from 'path';
 
 export interface Response {
-  status: number;
+  status?: number;
 }
 
 export default class App {
@@ -14,15 +14,17 @@ export default class App {
   private readonly START_ERROR: string = 'Error starting server: ';
   private readonly SERVER_CLOSED: string = 'Server has been closed.';
   private readonly BASE_DIR: string = __dirname.split('src')[0] + '/static/public';
+
   private readonly OK: number = 200;
   private readonly port: number;
+
   public readonly app: express.Application;
   private server?: http.Server;
 
   public constructor(port: number) {
     this.port = port;
     this.app = express();
-    this.app.use('/', express.static('static/public'));
+    this.app.use('/', express.static('static'));
   }
 
   public start(): void {
@@ -46,9 +48,11 @@ export default class App {
   }
 
   public get(route: string, template: string): Response {
+    const response = { status: 200 };
     this.app.get(route, (req, res) => {
       res.sendFile(path.join(this.BASE_DIR, template));
+      if (res.statusCode) response.status = res.statusCode;
     });
-    return { status: this.OK };
+    return response;
   }
 }

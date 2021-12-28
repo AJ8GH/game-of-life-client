@@ -9,7 +9,7 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "ignorePatterns": ["node_modules", "*.config.js", "coverage"],
+  "ignorePatterns": ["node_modules", "*.config.js", "coverage", "out"],
   "rules": {
     "semi": "off",
     "@typescript-eslint/semi": ["error"],
@@ -28,7 +28,7 @@
     "keyword-spacing": "off",
     "@typescript-eslint/keyword-spacing": ["error", { "before": true, "after": true }],
     "indent": "off",
-    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/indent": ["error", 2, { "FunctionDeclaration": {"parameters": "first"} }],
     "func-call-spacing": "off",
     "@typescript-eslint/func-call-spacing": ["error", "never"],
     "default-param-last": "off",

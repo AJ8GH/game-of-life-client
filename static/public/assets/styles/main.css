@@ -5,4 +5,11 @@ body {
 .cell {
   border-color: black;
   border-width: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.grid {
+  height: 400px;
+  width: 800px
 }

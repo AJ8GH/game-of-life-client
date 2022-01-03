@@ -1,6 +1,6 @@
-import Deserializer from '../../../src/deserialization/deserializer';
-import Client from '../../../src/client/client';
-import GameState, { GameStateData } from '../../../src/domain/game-state';
+import Deserializer from '../../src/deserialization/deserializer';
+import Client from '../../src/client/client';
+import GameState, { GameStateData } from '../../src/domain/game-state';
 
 const client = new Client();
 const deserializer = new Deserializer();
@@ -8,7 +8,6 @@ const deserializer = new Deserializer();
 document.getElementById('start').addEventListener('click', handleClick);
 
 function handleClick(this: HTMLElement, event: Event): void {
-  alert('hello');
   console.log('1. Click received...');
   deserializeAndCreateGrid();
 }
